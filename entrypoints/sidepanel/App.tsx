@@ -216,6 +216,21 @@ function App() {
           </div>
         )}
       </div>
+
+      {/* Footer */}
+      <div className="px-3 py-1.5 border-t border-d365-border text-center shrink-0">
+        <span className="text-[10px] text-gray-400">
+          Created by{' '}
+          <a
+            href="https://www.linkedin.com/in/tomloraso"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-d365-blue hover:underline"
+          >
+            Tom Loraso
+          </a>
+        </span>
+      </div>
     </div>
   );
 }

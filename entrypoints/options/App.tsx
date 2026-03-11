@@ -160,6 +160,17 @@ function App() {
             browser session to authenticate — no credentials are stored.
           </p>
           <p className="text-xs text-gray-400 mt-2">Version 1.0.0</p>
+          <p className="text-xs text-gray-400 mt-1">
+            Created by{' '}
+            <a
+              href="https://www.linkedin.com/in/tomloraso"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-d365-blue hover:underline"
+            >
+              Tom Loraso
+            </a>
+          </p>
         </div>
       </div>
     </div>
