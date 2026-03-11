@@ -24,51 +24,6 @@ export function buildMetadataUrl(environmentUrl: string): string {
 }
 
 /**
- * Build an OData query URL
- */
-export function buildODataUrl(
-  environmentUrl: string,
-  entityName: string,
-  options?: {
-    select?: string[];
-    filter?: string;
-    top?: number;
-    skip?: number;
-    orderBy?: string;
-    crossCompany?: boolean;
-    count?: boolean;
-  }
-): string {
-  const base = environmentUrl.replace(/\/+$/, '');
-  const params = new URLSearchParams();
-
-  if (options?.select?.length) {
-    params.set('$select', options.select.join(','));
-  }
-  if (options?.filter) {
-    params.set('$filter', options.filter);
-  }
-  if (options?.top) {
-    params.set('$top', String(options.top));
-  }
-  if (options?.skip) {
-    params.set('$skip', String(options.skip));
-  }
-  if (options?.orderBy) {
-    params.set('$orderby', options.orderBy);
-  }
-  if (options?.crossCompany) {
-    params.set('cross-company', 'true');
-  }
-  if (options?.count) {
-    params.set('$count', 'true');
-  }
-
-  const queryString = params.toString();
-  return `${base}/data/${entityName}${queryString ? '?' + queryString : ''}`;
-}
-
-/**
  * Normalize a D365 environment URL (strip trailing slashes, ensure https)
  */
 export function normalizeEnvironmentUrl(url: string): string {

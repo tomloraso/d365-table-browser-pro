@@ -36,9 +36,9 @@ export function useMetadata(
         type: 'GET_CACHED_METADATA',
         environmentId,
       };
-      const cacheResponse = (await browser.runtime.sendMessage(cacheMsg)) as BackgroundResponse;
+      const cacheResponse = (await browser.runtime.sendMessage(cacheMsg).catch(() => null)) as BackgroundResponse | null;
 
-      if (cancelled) return;
+      if (cancelled || !cacheResponse) return;
 
       if (cacheResponse.type === 'METADATA_RESULT') {
         setMetadata(cacheResponse.data);
@@ -86,7 +86,7 @@ export function useMetadata(
       type: 'CLEAR_METADATA_CACHE',
       environmentId,
     };
-    await browser.runtime.sendMessage(msg);
+    await browser.runtime.sendMessage(msg).catch(() => {});
     setMetadata(null);
   }, [environmentId]);
 

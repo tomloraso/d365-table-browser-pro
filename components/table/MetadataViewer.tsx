@@ -197,7 +197,7 @@ export function MetadataViewer({
                 {entity.navigationProperties.map((nav) => {
                   // Extract short name from full type name
                   const shortType = nav.targetEntityType.includes('.')
-                    ? nav.targetEntityType.split('.').pop()!
+                    ? (nav.targetEntityType.split('.').pop() ?? nav.targetEntityType)
                     : nav.targetEntityType;
 
                   return (

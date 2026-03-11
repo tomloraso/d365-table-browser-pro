@@ -72,13 +72,24 @@ export default defineBackground(() => {
     environmentUrl: string
   ): Promise<ODataMetadata> {
     const url = buildMetadataUrl(environmentUrl);
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 60000);
 
-    const response = await fetch(url, {
-      credentials: 'include', // Send cookies for D365 auth
-      headers: {
-        Accept: 'application/xml',
-      },
-    });
+    let response: Response;
+    try {
+      response = await fetch(url, {
+        credentials: 'include',
+        signal: controller.signal,
+        headers: { Accept: 'application/xml' },
+      });
+    } catch (err) {
+      clearTimeout(timeoutId);
+      if (err instanceof DOMException && err.name === 'AbortError') {
+        throw new Error('Metadata fetch timed out. The environment may be slow or unreachable.');
+      }
+      throw err;
+    }
+    clearTimeout(timeoutId);
 
     if (response.status === 401 || response.status === 403) {
       throw new Error(
@@ -107,7 +118,7 @@ export default defineBackground(() => {
   browser.runtime.onMessage.addListener(
     (
       message: BackgroundMessage,
-      sender: browser.Runtime.MessageSender,
+      sender: Browser.runtime.MessageSender,
       sendResponse: (response: BackgroundResponse) => void
     ): true | undefined => {
       // Only accept messages from this extension
@@ -185,14 +196,28 @@ export default defineBackground(() => {
 
   // ---- OData query execution ----
   async function executeQuery(url: string): Promise<BackgroundResponse> {
-    const response = await fetch(url, {
-      credentials: 'include',
-      headers: {
-        Accept: 'application/json',
-        'OData-MaxVersion': '4.0',
-        'OData-Version': '4.0',
-      },
-    });
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 120000); // 2 min for large queries
+
+    let response: Response;
+    try {
+      response = await fetch(url, {
+        credentials: 'include',
+        signal: controller.signal,
+        headers: {
+          Accept: 'application/json',
+          'OData-MaxVersion': '4.0',
+          'OData-Version': '4.0',
+        },
+      });
+    } catch (err) {
+      clearTimeout(timeoutId);
+      if (err instanceof DOMException && err.name === 'AbortError') {
+        return { type: 'QUERY_ERROR', error: 'Query timed out. Try reducing the row count or adding filters.' };
+      }
+      throw err;
+    }
+    clearTimeout(timeoutId);
 
     if (response.status === 401 || response.status === 403) {
       return {

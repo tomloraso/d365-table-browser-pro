@@ -75,8 +75,8 @@ function App() {
           <button
             onClick={async () => {
               try {
-                const win = await chrome.windows.getCurrent();
-                await (chrome as any).sidePanel.open({ windowId: win.id });
+                const win = await browser.windows.getCurrent();
+                await (browser as any).sidePanel.open({ windowId: win.id });
                 window.close();
               } catch {
                 alert('To open the side panel:\nClick the side panel icon in the top-right of your browser toolbar, then select "D365 F&O Table & OData Browser Pro".');
