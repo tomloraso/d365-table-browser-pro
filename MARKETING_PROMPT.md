@@ -1,132 +1,174 @@
 # Marketing Prompts for Claude
 
-Use these prompts in Claude (claude.ai) to generate marketing assets. Attach screenshots of your extension for best results.
+Use these prompts in Claude (claude.ai). Attach the screenshots from the `images/` folder as indicated.
+
+## Screenshots available (in images/ folder)
+
+1. `Table Browser.png` — Side panel open alongside D365, showing Currency table data with the Browse tab
+2. `OData query builder with multi legal entity capability.png` — Query tab with Currencies entity, all fields selected, cross-company checked, 28 rows returned in data grid
+3. `OData Entity Fetch.png` — Entities tab loading metadata from environment
+4. `Environment Selection.png` — Popup with environment dropdown showing TEST, UAT, PROD
+5. `Environment configuration.png` — Options page with 3 environments configured (green/blue/red), About section
+6. `Favourites.png` — Popup showing Favorites tab with 3 saved tables
+7. `History.png` — Popup showing History tab with recent table lookups
 
 ---
 
-## Prompt 1: Chrome Web Store Promotional Images
+## Prompt 1: Chrome Web Store Screenshots & Promotional Tile
+
+Attach: ALL 7 images
 
 ```
-I need promotional images for my Chrome Web Store extension listing.
+I have a free browser extension for D365 Finance & Operations called "D365 F&O Table & OData Browser Pro". I need you to create promotional images for the Chrome Web Store listing.
 
-Extension name: D365 F&O Table & OData Browser Pro
-What it does: A browser extension for Dynamics 365 Finance & Operations consultants that lets them:
-- Search 15,800+ D365 tables instantly
-- Build OData queries visually with a drag-and-drop query builder
-- Run cross-company queries in one click
-- Export results to CSV/Excel/JSON
-- Manage multiple D365 environments with color-coded switching
-- Works from a side panel pinned alongside D365
+Here are screenshots of the actual extension. Please use these real screenshots in the designs — don't mock up fake UI.
 
-Target audience: D365 F&O functional consultants, developers, and solution architects
-
-Brand colors:
-- Primary: Dark navy (#1B2A4A)
-- Accent: Sky blue (#38BDF8) to purple (#818CF8) gradient
-- Clean, modern, professional look
+What the extension does:
+- Search 15,815 D365 tables by name, open the Table Browser in one click
+- Build OData queries visually — pick an entity, select fields, add filters, toggle cross-company
+- View results in a sortable data grid, export to CSV/TSV/JSON
+- Manage multiple D365 environments (Dev, UAT, Prod) with color coding
+- Side panel mode so it sits alongside D365 while you work
+- Uses your existing D365 session — no credentials stored, read-only
 
 Please create:
-1. A Chrome Web Store promotional tile (1400x560) — hero banner with extension name, 3 key features as bullet points, and a mockup of the extension UI
-2. A small promotional tile (440x280) — simpler version with just the name and a tagline like "Query D365 data in seconds"
+1. A Chrome Web Store hero banner (1400x560) — clean white/light background, extension name on the left, 2-3 of the attached screenshots arranged on the right. Keep it simple and functional. No hype — just show what it does.
+2. A small promotional tile (440x280) — extension name, the TB icon (indigo-to-blue gradient square with white "TB"), and a one-liner: "Search tables & query OData in D365 F&O"
 
-Style: Clean, minimal, tech-professional. No gradients overload. Think Notion/Linear/Vercel style marketing.
+Style: Clean, minimal, professional. White or very light background. This is a free utility tool, not a SaaS product — keep it understated.
 ```
 
 ---
 
-## Prompt 2: LinkedIn Post Image / Carousel
+## Prompt 2: LinkedIn Post Image
+
+Attach: `Table Browser.png`, `OData query builder with multi legal entity capability.png`, `Environment Selection.png`
 
 ```
-I'm sharing a browser extension I built on LinkedIn and need eye-catching visuals.
+I'm posting on LinkedIn about a free browser extension I built for D365 F&O consultants. I need a simple image to go with the post.
 
-Extension: D365 F&O Table & OData Browser Pro
-Audience: Dynamics 365 consultants and developers on LinkedIn
+Create a single LinkedIn image (1200x627) that shows:
+- Left side: the extension name "D365 F&O Table & OData Browser Pro" and 3 short bullet points:
+  - Search 15,800+ tables instantly
+  - OData queries with cross-company
+  - Export to CSV / Excel / JSON
+- Right side: 2 of the attached screenshots, slightly overlapping, showing the extension in use
 
-Create a LinkedIn carousel (1080x1080 per slide) with these slides:
+The attached screenshots show the real extension UI. Use them as-is, just frame them nicely.
 
-Slide 1 (Hook): "Stop manually building OData URLs" — large text on dark navy background with a subtle table grid pattern
-
-Slide 2 (Problem): "The D365 Table Browser problem" — bullet points:
-- SysTableBrowser disabled on production
-- Stuck in one company at a time
-- No way to export data
-- Building OData URLs by hand
-
-Slide 3 (Solution): "D365 F&O Table & OData Browser Pro" — show the extension name with the key value prop: "Search 15,800+ tables. Query OData visually. Export to Excel."
-
-Slide 4 (Feature - Search): "Instant table search" — show concept of search bar with instant results appearing
-
-Slide 5 (Feature - Cross-company): "Cross-company queries in one click" — show concept of toggling cross-company and seeing data from all legal entities
-
-Slide 6 (Feature - Export): "Export to CSV, Excel, or JSON" — show concept of data grid with export buttons
-
-Slide 7 (CTA): "Free on the Chrome Web Store" — with a call to action to install
-
-Brand colors: Dark navy (#1B2A4A), sky blue (#38BDF8), white text. Clean, modern style.
+Keep it clean and understated — white or light grey background. This is a free tool I'm sharing, not a product launch. No "game-changing" or "revolutionary" language. Just functional.
 ```
 
 ---
 
-## Prompt 3: Short Video Script
+## Prompt 3: D365 Community Forum Post
+
+Attach: `Table Browser.png`, `OData query builder with multi legal entity capability.png`
 
 ```
-Write a 60-second screen recording script for a demo video of my D365 browser extension. I'll record my screen while narrating this.
+Write a short post for the Dynamics 365 Community forums about a free browser extension I built.
 
 Extension: D365 F&O Table & OData Browser Pro
-Target: D365 F&O consultants who want to look up tables and query data faster
+Attached are screenshots of the extension in use.
 
-The flow should be:
-1. (5s) Open the extension popup, show the table search with instant results
-2. (10s) Search for "CustTable", show it appearing, click to open Table Browser
-3. (5s) Switch to the side panel view
-4. (15s) Open the Query Builder, pick an entity (e.g., CustomersV3), select a few fields, toggle cross-company ON
-5. (10s) Execute the query, show results loading in the data grid
-6. (10s) Sort a column, then click "Copy as TSV", paste into Excel to show it works
-7. (5s) Closing — show environment switcher, mention it's free
-
-Keep the narration casual and practical — this is a tool demo, not a sales pitch. The audience are technical consultants who will appreciate seeing it work, not being sold to.
-```
-
----
-
-## Prompt 4: D365 Community Forum Post
-
-```
-Write a short announcement post for the Dynamics 365 Community forums (community.dynamics.com) about my new free browser extension.
-
-Extension: D365 F&O Table & OData Browser Pro
-Key features:
-- Search 15,800+ D365 F&O tables instantly (no metadata loading)
-- Visual OData Query Builder with cross-company support
-- Sortable data grid with CSV/TSV/JSON export
-- Multi-environment management with color coding
+What it does:
+- Search 15,815 D365 F&O tables by name (static list, no metadata loading needed)
+- Open Table Browser in one click
+- Visual OData Query Builder — pick entity, select fields, add filters, cross-company toggle
+- Results in a sortable data grid with CSV/TSV/JSON export
+- Multi-environment management with color-coded badges
 - Side panel mode
-- Uses existing D365 session — no credentials stored
+- Uses existing D365 browser session — no credentials stored
 - Free, works on Chrome and Edge
 
-Tone: Helpful community member sharing a tool, not promotional. Ask for feedback. Mention it's a passion project. Keep it concise — forum members skim long posts.
+Tone: Helpful community member sharing something they made. Not salesy. Ask for feedback and suggestions. Be honest about limitations.
 
-Include a section for "Known limitations" to show transparency:
-- Table list is static (v10.0.46) — custom/ISV tables won't appear in search but you can type any name manually
+Include these known limitations:
+- Table list is static (from v10.0.46) — custom/ISV tables won't appear in search but you can type any name manually
 - OData queries are read-only
 - Requires an active D365 session in the browser
+- Metadata fetch can take a moment on large environments
+
+End with the Chrome Web Store link placeholder [CHROME_STORE_LINK] and mention it also works on Edge.
 ```
 
 ---
 
-## Prompt 5: Privacy Policy Page
+## Prompt 4: PowerPoint Presentation
+
+Attach: ALL 7 images
 
 ```
-Write a simple, clear privacy policy for a browser extension called "D365 F&O Table & OData Browser Pro".
+I have a free browser extension for D365 Finance & Operations called "D365 F&O Table & OData Browser Pro". I need you to create a PowerPoint presentation (.pptx) I can use to share with colleagues and the D365 community.
 
-Key facts about the extension:
-- It does NOT collect any user data
-- It does NOT send data to any external server
-- It stores user preferences (environment configs, favorites, history) in chrome.storage.local — this data never leaves the browser
-- It makes HTTPS requests ONLY to Dynamics 365 URLs that the user explicitly configures
-- It uses the user's existing browser session cookies to authenticate with D365 — no passwords or tokens are stored
-- Permissions used: storage, activeTab, sidePanel
+Here are 7 screenshots of the actual extension. Use them in the slides — don't mock up fake UI.
+
+Please create a clean, professional PowerPoint with these slides:
+
+Slide 1 — Title
+- "D365 F&O Table & OData Browser Pro"
+- Subtitle: "A free browser extension for Dynamics 365 Finance & Operations"
+- Created by Tom Loraso
+
+Slide 2 — The Problem
+- Working with D365 tables means manually building Table Browser URLs
+- OData queries require hand-crafting complex URLs with $select, $filter, $top, cross-company
+- Switching between Dev, UAT, and Prod means changing URLs constantly
+- Keep it brief — 3-4 bullet points max
+
+Slide 3 — Table Browser
+- Search 15,800+ D365 tables by name instantly (no metadata loading)
+- Open the Table Browser in one click
+- Favorites and history for quick access
+- Include the "Table Browser.png" and "Favourites.png" screenshots
+
+Slide 4 — OData Query Builder
+- Visual query builder: pick entity, select fields, add filters
+- Cross-company queries in one toggle — pull data across all legal entities
+- Results in a sortable data grid
+- Export to CSV, TSV (paste into Excel), or JSON
+- Include the "OData query builder with multi legal entity capability.png" screenshot
+
+Slide 5 — Multi-Environment Support
+- Configure Dev, UAT, Prod with color-coded badges
+- Switch environments from a dropdown
+- Side panel mode — pin alongside D365 while you work
+- Include "Environment Selection.png" and "Environment configuration.png" screenshots
+
+Slide 6 — Security & Privacy
+- Uses your existing D365 browser session — no credentials stored
+- Read-only — cannot modify D365 data
+- D365 enforces all security server-side — you only see what your role allows
+- No data sent to external servers, everything stays in your browser
+
+Slide 7 — Get It (Free)
+- Chrome Web Store: [CHROME_STORE_LINK]
+- Also works on Microsoft Edge (same extension)
+- Feedback & suggestions welcome
+- Contact: linkedin.com/in/tomloraso
+
+Style: Clean, minimal, white background. Use an indigo-to-blue accent color (#6366F1 to #38BDF8) to match the extension branding. No animations or transitions. This is a utility tool, not a sales deck — keep it functional and understated.
+
+Output as a downloadable .pptx file.
+```
+
+---
+
+## Prompt 5: Privacy Policy
+
+No images needed.
+
+```
+Write a short, plain-English privacy policy for a free browser extension called "D365 F&O Table & OData Browser Pro".
+
+Facts:
+- Does NOT collect any user data
+- Does NOT send data to any external server or third party
+- Stores user preferences (environment configs, favorites, history) locally in chrome.storage.local — never leaves the browser
+- Makes HTTPS requests ONLY to Dynamics 365 URLs that the user explicitly configures in settings
+- Uses the user's existing browser session cookies to authenticate — no passwords, tokens, or API keys are stored
+- Permissions: storage, unlimitedStorage, activeTab, sidePanel
 - Host permissions: *.dynamics.com (HTTPS only)
 
-The privacy policy should be short, human-readable, and suitable for linking from Chrome Web Store. No legal jargon. Include contact info: LinkedIn profile https://www.linkedin.com/in/tomloraso
+Keep it short and human-readable. No legal jargon. Include contact: https://www.linkedin.com/in/tomloraso
 ```

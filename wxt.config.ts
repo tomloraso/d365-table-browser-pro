@@ -8,7 +8,7 @@ export default defineConfig({
     description:
       'Browse tables, query OData entities, and export data from Dynamics 365 Finance & Operations with multi-environment support',
     version: '1.0.0',
-    permissions: ['storage', 'activeTab', 'sidePanel'],
+    permissions: ['storage', 'unlimitedStorage', 'activeTab', 'sidePanel'],
     host_permissions: [
       'https://*.dynamics.com/*',
       'https://*.operations.dynamics.com/*',

@@ -166,7 +166,7 @@ export function TableOpener({
         {hasResults && (
           <div
             ref={resultsRef}
-            className="absolute z-50 left-0 right-0 top-full mt-1 bg-white border border-d365-border rounded shadow-lg max-h-60 overflow-y-auto"
+            className="mt-1 bg-white border border-d365-border rounded shadow-lg max-h-60 overflow-y-auto"
           >
             {results.map((entry, idx) => {
               const isSelected = idx === selectedIndex;

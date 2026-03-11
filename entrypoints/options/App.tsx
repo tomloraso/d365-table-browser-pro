@@ -29,9 +29,11 @@ function App() {
     setEditingId(null);
   };
 
+  const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
+
   const handleDelete = async (id: string) => {
-    if (!confirm('Remove this environment?')) return;
     await removeEnvironment(id);
+    setConfirmDeleteId(null);
   };
 
   if (loading) {
@@ -109,7 +111,7 @@ function App() {
                           Company: {env.defaultCompany}
                         </p>
                       </div>
-                      <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="flex items-center gap-1">
                         {activeEnvironment?.id !== env.id && (
                           <button
                             onClick={() => setActiveEnvironment(env.id)}
@@ -122,17 +124,36 @@ function App() {
                           onClick={() => {
                             setEditingId(env.id);
                             setShowAddForm(false);
+                            setConfirmDeleteId(null);
                           }}
                           className="text-xs text-d365-gray hover:text-d365-dark px-2 py-1"
                         >
                           Edit
                         </button>
-                        <button
-                          onClick={() => handleDelete(env.id)}
-                          className="text-xs text-red-400 hover:text-red-600 px-2 py-1"
-                        >
-                          Remove
-                        </button>
+                        {confirmDeleteId === env.id ? (
+                          <>
+                            <span className="text-xs text-red-600 px-1">Remove?</span>
+                            <button
+                              onClick={() => handleDelete(env.id)}
+                              className="text-xs text-red-600 font-medium hover:underline px-1"
+                            >
+                              Yes
+                            </button>
+                            <button
+                              onClick={() => setConfirmDeleteId(null)}
+                              className="text-xs text-d365-gray hover:text-d365-dark px-1"
+                            >
+                              No
+                            </button>
+                          </>
+                        ) : (
+                          <button
+                            onClick={() => setConfirmDeleteId(env.id)}
+                            className="text-xs text-red-400 hover:text-red-600 px-2 py-1"
+                          >
+                            Remove
+                          </button>
+                        )}
                       </div>
                     </div>
                   )}
